@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services || CyberSecurity</title>
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="shared.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header" class="reveal-section">
+        <div class="header-cls">
+            <a href="index.html">
+                <img src="./assets/Stackly-Logo-White.webp" alt="Logo" class="logo reveal-image">
+            </a>
+            <div class="nav-links" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="nav-active">Services</a>
+                <a href="contact.html">Contact</a>
+                <div class="scroll-nav">
+                    <a href="login.html" class="btn btn-ghost">Login</a>
+                </div>
+                <div class="close-btn material-icons" id="closeMenu">close</div>
+                <div class="mob-view">
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="material-icons">menu</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero">
+        <div class="sub-hero-content">
+            <h1 class="text-gradient" data-aos="fade-right">Services</h1>
+            <div class="breadcrumb">
+                <a href="index.html" data-aos="fade-left">Home</a>
+                <span class="material-icons">keyboard_double_arrow_right</span>
+                <p>Services</p>
+            </div>
+            <div class="hero-quote" data-aos="fade-down">
+                Your security starts with <span>a conversation.</span> </div>
+        </div>
+    </section>
+    <section class="cyber-services" id="services">
+        <div class="services-container">
+
+            <div class="section-header text-center">
+                <div class="chips"><span class="material-icons">lock</span>Services</div>
+                <h1 class="sec-head">Operational <span class="text-gradient">Capabilities</span></h1>
+                <p class="sec-desc">Comprehensive cyber defense mechanisms tailored for enterprise resilience.</p>
+            </div>
+
+            <div class="tab-navigation" data-aos="fade-up">
+                <button class="tab-btn active" data-tab="defensive">
+                    <span class="material-icons">shield</span> Defensive (Blue Team)
+                </button>
+                <button class="tab-btn" data-tab="offensive">
+                    <span class="material-icons">my_location</span> Offensive (Red Team)
+                </button>
+                <button class="tab-btn" data-tab="strategic">
+                    <span class="material-icons">architecture</span> Strategic & Gov
+                </button>
+            </div>
+
+            <div class="tab-content-wrapper">
+
+                <div class="tab-pane active" id="defensive">
+                    <div class="service-grid" data-aos="fade-down">
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">radar</span>
+                            <h3>24/7 SOC Monitoring</h3>
+                            <p>Continuous network surveillance utilizing AI-driven anomaly detection to identify and
+                                isolate threats in real-time.</p>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">gpp_good</span>
+                            <h3>Endpoint Armor (XDR)</h3>
+                            <p>Military-grade protection for all connected hardware, preventing malware execution and
+                                lateral network movement.</p>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">vpn_key</span>
+                            <h3>Zero-Trust Architecture</h3>
+                            <p>Implementation of strict identity verification and micro-segmentation. Never trust,
+                                always verify.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="offensive">
+                    <div class="service-grid">
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">bug_report</span>
+                            <h3>Penetration Testing</h3>
+                            <p>Simulated cyberattacks on your infrastructure to identify exploitable vulnerabilities
+                                before malicious actors do.</p>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">warning</span>
+                            <h3>Red Teaming</h3>
+                            <p>Full-scope, multi-layered attack simulations designed to measure how well your people,
+                                networks, and physical security can withstand a real threat.</p>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">phishing</span>
+                            <h3>Social Engineering</h3>
+                            <p>Targeted phishing and spear-phishing campaigns to test employee awareness and fortify the
+                                human element of your security.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="strategic">
+                    <div class="service-grid">
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">admin_panel_settings</span>
+                            <h3>Virtual CISO (vCISO)</h3>
+                            <p>Executive-level security leadership on demand. We align your cyber strategy directly with
+                                your business objectives.</p>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">fact_check</span>
+                            <h3>Compliance Audits</h3>
+                            <p>Ensure your operations meet strict global regulatory standards, including ISO 27001, SOC
+                                2, HIPAA, and GDPR.</p>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <span class="material-icons icon-gradient">emergency</span>
+                            <h3>Incident Response Plan</h3>
+                            <p>Develop and test highly structured playbooks to ensure rapid, coordinated action in the
+                                event of a critical breach.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="chips">
+                    <span class="material-icons">lock</span> our Projects
+                </div>
+                <h1 class="sec-head">
+                    Showcasing our cybersecurity
+                    <span class="text-gradient">latest projects</span>
+                </h1>
+            </div>
+            <div class="pin-section">
+                <div class="projects-container">
+
+                    <div class="projects-nav">
+                        <div class="progress-track">
+                            <div class="fill"></div>
+                        </div>
+
+                        <ul class="list font-mono">
+                            <li>01. Zero-Trust Architecture</li>
+                            <li>02. Cloud Infrastructure Defense</li>
+                            <li>03. Enterprise Penetration Testing</li>
+                            <li>04. 24/7 Threat Monitoring (SOC)</li>
+                        </ul>
+                    </div>
+
+                    <div class="projects-content">
+                        <div class="slide glass-panel">
+                            <h3 class="text-gradient">Zero-Trust Architecture</h3>
+                            <p>Never trust, always verify. We implemented a continuous authentication protocol for a
+                                Fortune 500
+                                financial firm.</p>
+                            <img src="./assets/project1.webp" alt="Zero Trust">
+                        </div>
+
+                        <div class="slide glass-panel">
+                            <h3 class="text-gradient">Cloud Defense</h3>
+                            <p>Secured multi-cloud environments across AWS and Azure, preventing unauthorized data
+                                exfiltration.
+                            </p>
+                            <img src="./assets/project2.webp" alt="Cloud Defense">
+                        </div>
+
+                        <div class="slide glass-panel">
+                            <h3 class="text-gradient">Penetration Testing</h3>
+                            <p>Simulated advanced persistent threats (APT) to identify and patch zero-day
+                                vulnerabilities.</p>
+                            <img src="./assets/project3.webp" alt="Pen Testing">
+                        </div>
+
+                        <div class="slide glass-panel">
+                            <h3 class="text-gradient">Threat Monitoring</h3>
+                            <p>Deployed a fully automated SOC dashboard with sub-second incident response times.</p>
+                            <img src="./assets/project4.webp" alt="SOC">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cyber-methodology" id="methodology">
+        <div class="methodology-container">
+
+            <div class="section-header text-center">
+                <div class="chips"><span class="material-icons">lock</span>cyber methodology</div>
+                <h1 class="sec-head">Deployment <span class="text-gradient">Protocol</span></h1>
+                <p class="sec-desc">A structured, four-phase approach to securing your digital perimeter.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="phase-label font-mono">PHASE 01</span>
+                        <h3>Discovery & Threat Mapping</h3>
+                        <p>We conduct a deep-dive audit of your entire architecture, identifying exposed assets, legacy
+                            vulnerabilities, and shadow IT infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="phase-label font-mono">PHASE 02</span>
+                        <h3>Tactical Hardening</h3>
+                        <p>Immediate patching of critical vulnerabilities, deployment of next-gen firewalls, and
+                            configuration of strict Identity and Access Management (IAM).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="phase-label font-mono">PHASE 03</span>
+                        <h3>Active Defense Integration</h3>
+                        <p>Installation of our proprietary endpoint sensors and routing your network traffic through our
+                            AI-driven threat analysis engines.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="phase-label font-mono">PHASE 04</span>
+                        <h3>Continuous Overwatch</h3>
+                        <p>Handoff to our 24/7 Security Operations Center (SOC). You receive access to a live dashboard,
+                            while we hunt threats in the background.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="security-services">
+        <div class="services-container">
+
+            <div class="section-header">
+                <div class="chips"><span class="material-icons">lock</span> Security Services</div>
+                <h1 class="sec-head">Core <span class="text-gradient">Defense Matrix</span></h1>
+                <p class="sec-desc">Our multi-layered approach ensures absolute system integrity.</p>
+            </div>
+
+            <div class="bento-grid">
+
+                <div class="bento-card bento-large" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-content">
+                        <span class="material-icons icon-gradient bento-icon">shield</span>
+                        <h3>Active Threat Intelligence</h3>
+                        <p>Our AI-driven SOC monitors your network 24/7, identifying and neutralizing anomalous
+                            behaviors before they breach your perimeter.</p>
+                    </div>
+                    <div class="card-bg-glow"></div>
+                </div>
+
+                <div class="bento-card" data-aos="fade-down" data-aos-delay="200">
+                    <div class="card-content">
+                        <span class="material-icons icon-gradient bento-icon">vpn_key</span>
+                        <h3>Zero-Trust Auth</h3>
+                        <p>Strict identity verification for every user and device.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-content">
+                        <span class="material-icons icon-gradient bento-icon">memory</span>
+                        <h3>Endpoint Armor</h3>
+                        <p>Military-grade protection for all connected hardware.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-wide" data-aos="fade-down" data-aos-delay="400">
+                    <div class="card-content horizontal-content">
+                        <div class="text-group">
+                            <span class="material-icons icon-gradient bento-icon">data_object</span>
+                            <h3>Quantum-Safe Encryption</h3>
+                            <p>Future-proof your data with encryption protocols designed to withstand next-generation
+                                decryption algorithms.</p>
+                        </div>
+                        <button class="btn btn-outline">View Specs</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="cyber-testimonials">
+        <div class="services-container">
+            <div class="section-header">
+                <div class="chips"><span class="material-icons">lock</span> Our Testimonails</div>
+                <h1 class="sec-head">Client <span class="text-gradient">Briefings</span></h1>
+                <p class="sec-desc">Decrypted feedback from global partners.</p>
+            </div>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+
+                    <div class="testi-card glass-panel">
+                        <span class="material-icons icon-gradient quote-icon">format_quote</span>
+                        <p class="quote-text">"Their Zero-Trust implementation stopped a highly sophisticated ransomware
+                            attack in its tracks."</p>
+                        <div class="client-info">
+                            <img src="./assets/review1.webp" alt="Team1" loading="lazy">
+                            <div>
+                                <h4 class="client-name">Sarah Jenkins</h4>
+                                <span class="client-role font-mono">CISO, Aegis Financial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testi-card glass-panel">
+                        <span class="material-icons icon-gradient quote-icon">format_quote</span>
+                        <p class="quote-text">"The 24/7 SOC monitoring feels like having a military-grade perimeter
+                            around our cloud data."</p>
+                        <div class="client-info">
+                            <img src="./assets/team3.webp" alt="Team1" loading="lazy">
+                            <div>
+                                <h4 class="client-name">Marcus Chen</h4>
+                                <span class="client-role font-mono">CTO, CloudNova</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testi-card glass-panel">
+                        <span class="material-icons icon-gradient quote-icon">format_quote</span>
+                        <p class="quote-text">"During our red team penetration tests, we couldn't bypass a single
+                            endpoint."</p>
+                        <div class="client-info">
+                            <img src="./assets/review2.webp" alt="Team1" loading="lazy">
+                            <div>
+                                <h4 class="client-name">Dr. Elena Rostova</h4>
+                                <span class="client-role font-mono">Director of IT, Apex Health</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testi-card glass-panel">
+                        <span class="material-icons icon-gradient quote-icon">format_quote</span>
+                        <p class="quote-text">"Deployment was seamless, and the threat intelligence dashboard gives us
+                            real-time visibility."</p>
+                        <div class="client-info">
+                            <img src="./assets/review4.webp" alt="Team1" loading="lazy">
+                            <div>
+                                <h4 class="client-name">James Miller</h4>
+                                <span class="client-role font-mono">VP of Infrastructure, Omni Global</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card glass-panel">
+                        <span class="material-icons icon-gradient quote-icon">format_quote</span>
+                        <p class="quote-text">"During our red team penetration tests, we couldn't bypass a single
+                            endpoint."</p>
+                        <div class="client-info">
+                            <img src="./assets/team2.webp" alt="Team1" loading="lazy">
+                            <div>
+                                <h4 class="client-name">Dr. Priya </h4>
+                                <span class="client-role font-mono">Director of IT, Apex Health</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testi-card glass-panel">
+                        <span class="material-icons icon-gradient quote-icon">format_quote</span>
+                        <p class="quote-text">"Deployment was seamless, and the threat intelligence dashboard gives us
+                            real-time visibility."</p>
+                        <div class="client-info">
+                            <img src="./assets/review5.webp" alt="Team1" loading="lazy">
+                            <div>
+                                <h4 class="client-name">James rwdsfv</h4>
+                                <span class="client-role font-mono">VP of Infrastructure, Omni Global</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="btn btn-outline" id="testi-prev">
+                        <span class="material-icons">chevron_left</span>
+                    </button>
+                    <button class="btn btn-outline" id="testi-next">
+                        <span class="material-icons">chevron_right</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="cta">
+        <div class="container">
+            <div class="cta-container reveal-section">
+                <div class="cta-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="section-header">
+                        <h1 class="sec-head">Protect business, cyber security <span class="text-gradient"> solution
+                                today!</span></h1>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="404page.html" class="btn-ghost call-btn">
+                            <span class="material-icons">call</span>
+                            +91 9876543210
+                        </a>
+                        <a href="404page.html" class="btn-outline mail-btn">
+                            <span class="material-icons">mail</span>
+                            info@thestackly.com
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-img" data-aos="fade-down" data-aos-delay="400">
+                    <img src="./assets/hero2.webp" alt="Image" loading="lazy" class="reveal-image1">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="cyber-footer reveal-section">
+        <div class="footer-grid-bg"></div>
+
+        <div class="footer-container">
+
+
+            <div class="footer-links-grid">
+
+                <div class="footer-brand" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./assets/Stackly-Logo-White.webp" alt="Logo" class="logo reveal-image1">
+                    <p class="brand-desc">Next-generation digital defense and active threat neutralization for global
+                        enterprises.</p>
+                    <div class="social-links">
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-reddit"></i></a>
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-stack-overflow"></i></a>
+                    </div>
+                </div>
+
+                <div class="link-column" data-aos="fade-down" data-aos-delay="300">
+                    <h4 class="font-mono">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="font-mono">DEFENSE MATRIX</h4>
+                    <ul>
+                        <li><a href="404page.html">Zero-Trust Arch</a></li>
+                        <li><a href="404page.html">Cloud Perimeter</a></li>
+                        <li><a href="404page.html">Endpoint Armor</a></li>
+                        <li><a href="404page.html">Penetration Testing</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-column" data-aos="fade-down" data-aos-delay="500">
+                    <h4 class="font-mono">RESOURCES</h4>
+                    <ul>
+                        <li><a href="404page.html">Threat Database</a></li>
+                        <li><a href="404page.html">API Documentation</a></li>
+                        <li><a href="404page.html">Incident Response Guide</a></li>
+                        <li><a href="404page.html">Security Blog</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Stackly. All protocols strictly enforced.</p>
+
+                <div class="system-status">
+                    <span class="status-text font-mono">SYSTEM STATUS: SECURED</span>
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        }); 
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.remove('active'));
+
+                    btn.classList.add('active');
+
+                    const targetId = btn.getAttribute('data-tab');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const timelineItems = gsap.utils.toArray('.timeline-item');
+
+                timelineItems.forEach((item, i) => {
+                    gsap.fromTo(item,
+                        {
+                            opacity: 0,
+                            x: -50
+                        },
+                        {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.8,
+                            ease: "power3.out",
+                            scrollTrigger: {
+                                trigger: item,
+                                start: "top 85%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+                });
+            } else {
+                document.querySelectorAll('.timeline-item').forEach(item => {
+                    item.style.opacity = '1';
+                });
+            }
+
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const heroImages = document.querySelectorAll('.hero-img-slide .hero-img');
+
+            let currentIndex = 0;
+            const slideDuration = 3000;
+
+            const cycleImages = () => {
+                heroImages[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % heroImages.length;
+
+                heroImages[currentIndex].classList.add('active');
+            };
+
+            if (heroImages.length > 1) {
+                setInterval(cycleImages, slideDuration);
+            }
+
+        });
+        const cards = document.querySelectorAll('.testi-card');
+        const btnPrev = document.getElementById('testi-prev');
+        const btnNext = document.getElementById('testi-next');
+        let currentIndex = 0;
+
+        const updateCarousel = () => {
+            cards.forEach((card, index) => {
+                card.className = 'testi-card glass-panel';
+
+                const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+                const nextIndex = (currentIndex + 1) % cards.length;
+
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                } else if (index === prevIndex) {
+                    card.classList.add('prev');
+                } else if (index === nextIndex) {
+                    card.classList.add('next');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        };
+
+        updateCarousel();
+
+        btnNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCarousel();
+        });
+
+        btnPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        });
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (card.classList.contains('prev') || card.classList.contains('next')) {
+                    currentIndex = index;
+                    updateCarousel();
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const pinSection = document.querySelector(".pin-section");
+            const listItems = document.querySelectorAll(".list li");
+            const slides = document.querySelectorAll(".slide");
+            const fill = document.querySelector(".fill");
+
+            if (!pinSection || listItems.length === 0) return;
+
+            const totalItems = listItems.length;
+
+            function updatePinnedSection() {
+                if (window.innerWidth < 992) {
+                    slides.forEach(s => s.classList.add('active'));
+                    return;
+                }
+                const rect = pinSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                let progress = -rect.top / (rect.height - windowHeight);
+                progress = Math.max(0, Math.min(1, progress));
+                if (fill) {
+                    const minScale = 1 / totalItems;
+                    const currentScale = minScale + (progress * (1 - minScale));
+                    fill.style.transform = `scaleY(${currentScale})`;
+                }
+
+                let activeIndex = Math.floor(progress * totalItems);
+
+                if (activeIndex >= totalItems) activeIndex = totalItems - 1;
+
+                listItems.forEach((item, i) => {
+                    if (i === activeIndex) {
+                        item.classList.add("active");
+                        slides[i].classList.add("active");
+                    } else {
+                        item.classList.remove("active");
+                        slides[i].classList.remove("active");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", () => {
+                requestAnimationFrame(updatePinnedSection);
+            });
+
+            window.addEventListener("resize", () => {
+                requestAnimationFrame(updatePinnedSection);
+            });
+
+            updatePinnedSection();
+        });
+    </script>
+</body>
+
+</html>

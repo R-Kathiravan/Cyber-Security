@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login || CyberSecurity</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="shared.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class="cyber-auth-section">
+        <a href="index.html" class="btn btn-primary home-btn">Back to Home</a>
+        <div class="auth-bg-grid"></div>
+
+        <div class="auth-container glass-panel">
+
+            <div class="auth-header text-center">
+                <span class="material-icons icon-gradient" style="font-size: 3rem;">admin_panel_settings</span>
+                <a href="index.html">
+                    <img src="./assets/Stackly-Logo-White.webp" alt="Logo" class="logo">
+                </a>
+                <p class="auth-subtitle" id="auth-subtitle">Establish secure connection.</p>
+            </div>
+
+            <div id="auth-errors" class="terminal-errors font-mono" style="display: none; margin-bottom: 1.5rem;"></div>
+
+            <form id="form-login" class="cyber-form auth-form active-form">
+                <div class="form-group">
+                    <label for="login-email" class="font-mono">OPERATIVE EMAIL</label>
+                    <input type="email" id="login-email" placeholder="Enter your email...">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password" class="font-mono">PASSWORD</label>
+                    <input type="password" id="login-password" placeholder="Enter your password...">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-role" class="font-mono">Role</label>
+                    <div class="custom-select">
+                        <select id="login-role">
+                            <option value="client" selected>Client / User</option>
+                            <option value="admin">System Administrator</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100" style="margin-top: 1rem;">Authenticate</button>
+
+                <div class="auth-links font-mono">
+                    <a href="#" onclick="switchAuthView('forgot'); return false;">Forgot pass?</a>
+                    <a href="#" onclick="switchAuthView('signup'); return false;">Request Account (Sign Up)</a>
+                </div>
+            </form>
+
+            <form id="form-signup" class="cyber-form auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="signup-name" class="font-mono">NAME</label>
+                    <input type="text" id="signup-name" placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email" class="font-mono">CORPORATE EMAIL</label>
+                    <input type="email" id="signup-email" placeholder="j.doe@company.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signup-password" class="font-mono">Create KEY</label>
+                        <input type="password" id="signup-password" placeholder="Min 8 chars...">
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm" class="font-mono">VERIFY KEY</label>
+                        <input type="password" id="signup-confirm" placeholder="Repeat password...">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100" style="margin-top: 1rem;">Initialize
+                    Account</button>
+
+                <div class="auth-links font-mono text-center">
+                    <a href="#" onclick="switchAuthView('login'); return false;">Already have Account?
+                        Authenticate.</a>
+                </div>
+            </form>
+
+            <form id="form-forgot" class="cyber-form auth-form" style="display: none;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; text-align: center;">
+                    Enter your Operative Email. A secure key reset protocol will be transmitted to your terminal.
+                </p>
+
+                <div class="form-group">
+                    <label for="forgot-email" class="font-mono">OPERATIVE EMAIL</label>
+                    <input type="email" id="forgot-email" placeholder="Enter your email...">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100" style="margin-top: 1rem;"> Reset Password</button>
+
+                <div class="auth-links font-mono text-center">
+                    <a href="#" onclick="switchAuthView('login'); return false;">Return to Login</a>
+                </div>
+            </form>
+
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            window.switchAuthView = function (view) {
+                document.getElementById('form-login').style.display = 'none';
+                document.getElementById('form-signup').style.display = 'none';
+                document.getElementById('form-forgot').style.display = 'none';
+
+                const errorContainer = document.getElementById('auth-errors');
+                errorContainer.style.display = 'none';
+                errorContainer.innerHTML = '';
+
+                const subtitle = document.getElementById('auth-subtitle');
+                if (view === 'login') {
+                    document.getElementById('form-login').style.display = 'flex';
+                    subtitle.textContent = "Establish secure connection.";
+                } else if (view === 'signup') {
+                    document.getElementById('form-signup').style.display = 'flex';
+                    subtitle.textContent = "Request network clearance.";
+                } else if (view === 'forgot') {
+                    document.getElementById('form-forgot').style.display = 'flex';
+                    subtitle.textContent = "Initiate key recovery.";
+                }
+            };
+
+            const errorContainer = document.getElementById('auth-errors');
+
+            function showError(msg) {
+                errorContainer.style.display = 'block';
+                errorContainer.innerHTML = `<p><span class="error-prefix">>> ERROR:</span> ${msg}</p>`;
+                const container = document.querySelector('.auth-container');
+                container.classList.remove('shake-error');
+                void container.offsetWidth;
+                container.classList.add('shake-error');
+            }
+
+            document.getElementById('form-login').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                const role = document.getElementById('login-role').value;
+
+                if (!email || !password) {
+                    showError("Credentials missing. Input required.");
+                    return;
+                }
+                sessionStorage.setItem("userMail", email);
+                errorContainer.style.display = 'none';
+                const btn = e.target.querySelector('button');
+                btn.textContent = "Authenticating...";
+                btn.style.background = "#10B981";
+
+                setTimeout(() => {
+                    if (role === 'admin') {
+                        window.location.href = 'admin-dashboard.html';
+                    } else if (role === 'client') {
+                        window.location.href = 'client-dashboard.html';
+                    } else {
+                        alert('Select a valid role !')
+                    }
+                    btn.textContent = "Authenticate";
+                    btn.style.background = "";
+                }, 1000);
+            });
+
+            document.getElementById('form-signup').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const pass1 = document.getElementById('signup-password').value;
+                const pass2 = document.getElementById('signup-confirm').value;
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailRegex.test(email)) {
+                    showError("Invalid email format detected.");
+                    return;
+                }
+
+                if (pass1.length < 8) {
+                    showError("Encryption Pass too weak. Minimum 8 characters required.");
+                    return;
+                }
+
+                if (pass1 !== pass2) {
+                    showError("Verification mismatch. Password do not align.");
+                    return;
+                }
+
+                errorContainer.style.display = 'none';
+                e.target.querySelector('button').textContent = " Granted";
+                e.target.querySelector('button').style.background = "#10B981";
+
+                setTimeout(() => {
+                    window.location.href = '404page.html'
+                }, 1000);
+            });
+
+            document.getElementById('form-forgot').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('forgot-email').value;
+
+                if (!email) {
+                    showError("Operative Email required for recovery.");
+                    return;
+                }
+
+                errorContainer.style.display = 'none';
+                e.target.querySelector('button').textContent = "Loading";
+                e.target.querySelector('button').style.background = "#10B981";
+
+                setTimeout(() => {
+                    window.location.href = '404page.html'
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>

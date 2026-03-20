@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Access Restricted | Stackly Cyber Security</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="cyber-404-body">
+    <section class="cyber-404-section">
+
+        <div class="auth-bg-grid"></div>
+
+        <div class="error-container glass-panel">
+
+            <div class="glitch-wrapper">
+                <h1 class="glitch-text font-mono" data-text="404">404</h1>
+            </div>
+
+            <h2 class="error-title">CONNECTION <span class="text-gradient">Not Found</span></h2>
+
+
+            <a href="index.html" class="btn btn-ghost w-100" style="margin-top: 2rem; justify-content: center;">
+                <span class="material-icons" style="rotate: 180deg; margin-right: 20px;">arrow_forward</span>
+                Redirect to Home
+            </a>
+            <button onclick="history.back()" class="btn btn-outline w-100"
+                style="margin-top: 2rem; justify-content: center;">
+                <span class="material-icons" style="margin-right: 20px;">history</span>
+                Redirect to previous page
+            </button>
+
+        </div>
+    </section>
+    <style>
+        .cyber-404-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-main);
+            position: relative;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 600px;
+            padding: 4rem 3rem;
+            text-align: center;
+            border-color: rgba(239, 68, 68, 0.3);
+            box-shadow: 0 0 50px rgba(239, 68, 68, 0.05);
+        }
+
+        .glitch-wrapper {
+            margin-bottom: 1rem;
+        }
+
+        .glitch-text {
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin: 0;
+            color: var(--text-main);
+            position: relative;
+            display: inline-block;
+            text-shadow: -2px 0 var(--accent-primary);
+
+        }
+
+        @keyframes glitch-anim-1 {
+            0% {
+                clip-path: inset(20% 0 80% 0);
+                transform: translate(0);
+            }
+
+            20% {
+                clip-path: inset(60% 0 10% 0);
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                clip-path: inset(40% 0 50% 0);
+                transform: translate(2px, -2px);
+            }
+
+            60% {
+                clip-path: inset(80% 0 5% 0);
+                transform: translate(-2px, 2px);
+            }
+
+            80% {
+                clip-path: inset(10% 0 70% 0);
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                clip-path: inset(30% 0 50% 0);
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                clip-path: inset(10% 0 60% 0);
+                transform: translate(0);
+            }
+
+            20% {
+                clip-path: inset(80% 0 5% 0);
+                transform: translate(2px, -2px);
+            }
+
+            40% {
+                clip-path: inset(30% 0 20% 0);
+                transform: translate(-2px, 2px);
+            }
+
+            60% {
+                clip-path: inset(70% 0 10% 0);
+                transform: translate(2px, -2px);
+            }
+
+            80% {
+                clip-path: inset(20% 0 50% 0);
+                transform: translate(-2px, 2px);
+            }
+
+            100% {
+                clip-path: inset(50% 0 30% 0);
+                transform: translate(0);
+            }
+        }
+
+        .error-title {
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+        }
+
+        .terminal-readout {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed var(--glass-border);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .readout-line {
+            margin-bottom: 0.5rem;
+        }
+
+        .readout-line.error-red {
+            color: #EF4444;
+        }
+
+        .prefix {
+            color: var(--accent-primary);
+            margin-right: 0.5rem;
+        }
+
+        .typing-line::after {
+            content: '█';
+            animation: blink 1s step-end infinite;
+            color: var(--accent-primary);
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+</body>
+
+</html>

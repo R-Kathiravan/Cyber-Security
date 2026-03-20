@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Dashboard || Cyber Security</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h2 class="text-gradient"> Admin Dashboard</h2>
+            <div class="header-actions">
+                <button onclick="window.location.href='404page.html'" class="notif-btn" title="Notifications">
+                    <span class="material-icons icon-gradient">notifications</span>
+                    <span class="badge">3</span>
+                </button>
+                <button class="profile-btn" id="user-profile-btn" title="Access Profile">
+                    <span class="material-icons icon-gradient">account_circle</span>
+                    <span class="user-email font-mono auth-user-email" id="auth-user-email">Authenticating...</span>
+                </button>
+            </div>
+            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars-staggered"></i></button>
+        </header>
+        <nav class="sidebar" id="sidebar">
+            <div class="side-bar-top">
+                <ul>
+                    <li>
+                        <img src="./assets/Stackly-Logo-White.webp" alt="logo" class="logo">
+                    </li>
+                    <li class="sidebar-item active" data-tab="overview">
+                        <span class="material-icons">dashboard</span>
+                        Overview
+                    </li>
+                    <li class="sidebar-item" data-tab="security">
+                        <span class="material-icons">security</span>
+                        Security
+                    </li>
+                    <li class="sidebar-item" data-tab="users">
+                        <span class="material-icons">people</span>
+                        Users
+                    </li>
+                </ul>
+            </div>
+            <div class="side-bar-mid">
+                <button onclick="window.location.href='404page.html'" class="notif-btn" title="Notifications">
+                    <div> <span class="material-icons icon-gradient">notifications</span> </div>
+                    <span class="badge">3</span>
+                    <div class="notify-txt">Notification</div>
+                </button>
+                <button class="profile-btn" id="user-profile-btn" title="Access Profile">
+                    <h3>User:</h3>
+                    <div>
+                        <span class="material-icons icon-gradient">account_circle</span>
+                        <span class="user-email font-mono auth-user-email" id="auth-user-email">Authenticating...</span>
+                    </div>
+                </button>
+            </div>
+            <div class="side-bar-bottom">
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+                <a href="login.html" class="btn btn-danger">Logout</a>
+            </div>
+        </nav>
+        <main class="main-content">
+            <section id="overview" class="content-section active">
+                <h1 class="sec-head" style="margin-bottom: 20px;">Welcome Admin</h1>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">dashboard</span> Quick Stats</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--success-neon);">trending_up</span>
+                            <div class="stat-number counter" data-target="12456">0</div>
+                            <div class="stat-label">Daily Traffic</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">group</span>
+                            <div class="stat-number counter" data-target="2456">0</div>
+                            <div class="stat-label">Total Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--warning-neon);">warning</span>
+                            <div class="stat-number counter" data-target="23">0</div>
+                            <div class="stat-label">Alerts</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">sync</span>
+                            <div class="stat-number counter" data-target="1567">0</div>
+                            <div class="stat-label">Active Sessions</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--danger-neon);">block</span>
+                            <div class="stat-number counter" data-target="847">0</div>
+                            <div class="stat-label">Blocked Attacks</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--accent-primary);">check_circle</span>
+                            <div class="stat-number counter" data-target="98">0</div>
+                            <div class="stat-label">Compliance Score</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block glass-panel" style="padding: 2rem;">
+                    <h3 style="margin-top: 0; color: var(--text-main);">
+                        <span class="material-icons icon-gradient" style="vertical-align: middle;">bar_chart</span>
+                        Performance Chart
+                    </h3>
+
+                    <div class="block-content">
+                        <div style="position: relative; height: 250px; width: 100%; margin: 1.5rem 0;">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+
+                        <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">
+                            Server performance stable with 12.5% traffic increase. Peak at 14:00 UTC.
+                        </p>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">trending_up</span> Recent Activity
+                    </h3>
+                    <div class="recent-activity">
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">login</span>
+                            <span>User John Doe logged in from US</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">2min ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--warning-neon);">warning</span>
+                            <span>Low disk space alert</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">5min ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">check_circle</span>
+                            <span>Security scan completed</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">10min ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--danger-neon);">error</span>
+                            <span>Failed login attempt blocked</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">15min ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="security" class="content-section">
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">security</span> Threat Overview
+                    </h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--danger-neon);">error</span>
+                            <div class="stat-number counter" data-target="47">0</div>
+                            <div class="stat-label">High Threats</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--success-neon);">check_circle</span>
+                            <div class="stat-number counter" data-target="156">0</div>
+                            <div class="stat-label">Scans Complete</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--warning-neon);">firewall</span>
+                            <div class="stat-number counter" data-target="100">0</div>
+                            <div class="stat-label">Firewall</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">warning</span> Active Alerts</h3>
+                    <div class="alert-list">
+                        <div class="alert-item alert-high">
+                            <span class="material-icons" style="color: var(--danger-neon);">warning</span>
+                            <span>SQL Injection Attempt - IP 192.168.1.1 - Blocked</span>
+                        </div>
+                        <div class="alert-item alert-medium">
+                            <span class="material-icons" style="color: var(--warning-neon);">info</span>
+                            <span>Unusual Login from New York - Under Review</span>
+                        </div>
+                        <div class="alert-item alert-low">
+                            <span class="material-icons" style="color: var(--success-neon);">check</span>
+                            <span>VPN Connection Established - Normal</span>
+                        </div>
+                        <div class="alert-item alert-high">
+                            <span class="material-icons" style="color: var(--danger-neon);">warning</span>
+                            <span>DDoS Detected - Mitigated Auto</span>
+                        </div>
+                        <div class="alert-item alert-medium">
+                            <span class="material-icons" style="color: var(--warning-neon);">info</span>
+                            <span>Port Scan Detected - Logged</span>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='404page.html'" class="btn btn-danger"
+                        style="width: 100%; margin-top: 1rem;">Clear All Alerts</button>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">shield</span> System Status</h3>
+                    <div class="block-content">
+                        <p style="color: var(--text-muted);">All systems operational. Firewall at 100% capacity. Last
+                            scan: 10 minutes ago.</p>
+                        <div class="sections-grid">
+                            <div style="text-align: center;">
+                                <progress value="100" max="100" style="width: 100%; height: 12px;"></progress>
+                                <div style="color: var(--success-neon);">Firewall</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <progress value="95" max="100" style="width: 100%; height: 12px;"></progress>
+                                <div style="color: var(--success-neon);">IDS/IPS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">speed</span> Scan History</h3>
+                    <div class="block-content">
+                        <ul style="color: var(--text-muted);">
+                            <li>Full Scan - Completed 10min ago - 0 vulnerabilities</li>
+                            <li>Quick Scan - Completed 2hrs ago - 1 low issue fixed</li>
+                            <li>Deep Scan - In progress (45%)</li>
+                        </ul>
+                        <progress value="45" max="100" style="width: 100%; height: 12px;"></progress>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-primary"
+                            style="margin-top: 1rem;">Start Deep Scan</button>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">vpn_lock</span> VPN Status</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">check</span>
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Active VPN Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--success-neon);">trending_up</span>
+                            <div class="stat-number">+3</div>
+                            <div class="stat-label">VPN Traffic (GB)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">settings</span> Quick Actions</h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button onclick="window.location.href='404page.html'" class="btn btn-primary"
+                            style="flex: 1;">Update Firewall Rules</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-outline"
+                            style="flex: 1;">Run Compliance Check</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-danger"
+                            style="flex: 1;">Emergency Lockdown</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="users" class="content-section">
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">people</span> User Statistics</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">group</span>
+                            <div class="stat-number counter" data-target="2456">0</div>
+                            <div class="stat-label">Total Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--accent-primary);">person_add</span>
+                            <div class="stat-number counter" data-target="89">0</div>
+                            <div class="stat-label">New Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">login</span>
+                            <div class="stat-number counter" data-target="1567">0</div>
+                            <div class="stat-label">Active</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">table_chart</span> Recent Users
+                        Table</h3>
+                    <div class="table-wrapper glass-panel">
+                        <table class="user-table">
+                            <thead>
+                                <tr class="table-header font-mono">
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                    <th>Role</th>
+                                    <th>Last Login</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row">
+                                    <td class="table-cell">John Doe</td>
+                                    <td class="table-cell"><span class="status-badge status-online">Online</span></td>
+                                    <td class="table-cell">Admin</td>
+                                    <td class="table-cell">2024-04-30</td>
+                                    <td class="table-cell">
+                                        <button onclick="window.location.href='404page.html'"
+                                            class="btn btn-ghost small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="table-cell">Jane Smith</td>
+                                    <td class="table-cell"><span class="status-badge status-offline">Offline</span></td>
+                                    <td class="table-cell">User</td>
+                                    <td class="table-cell">2024-04-29</td>
+                                    <td class="table-cell">
+                                        <button onclick="window.location.href='404page.html'"
+                                            class="btn btn-ghost small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="table-cell">Bob Johnson</td>
+                                    <td class="table-cell"><span class="status-badge status-online">Online</span></td>
+                                    <td class="table-cell">Manager</td>
+                                    <td class="table-cell">2024-04-30</td>
+                                    <td class="table-cell">
+                                        <button onclick="window.location.href='404page.html'"
+                                            class="btn btn-ghost small">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="table-cell">Alice Brown</td>
+                                    <td class="table-cell"><span class="status-badge status-offline">Offline</span></td>
+                                    <td class="table-cell">User</td>
+                                    <td class="table-cell">2024-04-28</td>
+                                    <td class="table-cell">
+                                        <button onclick="window.location.href='404page.html'"
+                                            class="btn btn-ghost small">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <button onclick="window.location.href='404page.html'" class="btn btn-primary"
+                            style="flex: 1;">Add New User</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-ghost"
+                            style="flex: 1;">Export List</button>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">trending_up</span> User Activity
+                        Feed</h3>
+                    <div class="recent-activity">
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">login</span>
+                            <span>John Doe logged in (Admin)</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">2min ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--accent-primary);">person_add</span>
+                            <span>New user Alice Brown registered</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">1hr ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--warning-neon);">warning</span>
+                            <span>Jane Smith password reset requested</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">3hrs ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">check_circle</span>
+                            <span>Bob Johnson session extended</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">5hrs ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">login</span> Login History</h3>
+                    <div class="recent-activity">
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">login</span>
+                            <span>Successful login - John Doe (Admin)</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">Now</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--danger-neon);">error</span>
+                            <span>Failed login - unknown (3 attempts)</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">1min ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">logout</span>
+                            <span>Logout - Jane Smith</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">30min ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons" style="vertical-align: middle;">settings</span> User Management
+                        Tools</h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button onclick="window.location.href='404page.html'" class="btn btn-primary"
+                            style="flex: 1; min-width: 150px;">Bulk Import</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-outline"
+                            style="flex: 1; min-width: 150px;">Permission Audit</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-danger"
+                            style="flex: 1; min-width: 150px;">Suspend Inactive</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-ghost"
+                            style="flex: 1; min-width: 150px;">2FA Status</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const sessMail = sessionStorage.getItem("userMail");
+
+            const emailDisplays = document.querySelectorAll(".auth-user-email");
+
+            if (emailDisplays.length > 0) {
+                emailDisplays.forEach(displayElement => {
+
+                    if (sessMail) {
+                        displayElement.textContent = sessMail;
+                    } else {
+                        displayElement.textContent = "unidentified@system";
+                        displayElement.style.color = "#EF4444";
+                    }
+
+                });
+            }
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const contentSections = document.querySelectorAll('.content-section');
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const notifBtn = document.querySelector('.notif-btn');
+            const profileBtn = document.querySelector('.profile-btn');
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const tab = item.dataset.tab;
+
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+
+                    contentSections.forEach(sec => sec.classList.remove('active'));
+                    document.getElementById(tab).classList.add('active');
+                });
+            });
+
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                let current = 0;
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCounter();
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const ctx = document.getElementById('trafficChart');
+
+            if (ctx) {
+                new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Traffic',
+                            data: [8500, 9200, 10500, 11200, 9800, 12456, 11800],
+                            borderColor: 'rgba(0, 229, 255, 1)',
+                            backgroundColor: 'rgba(0, 229, 255, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(0, 229, 255, 1)',
+                            pointBorderColor: '#0b1120',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: 'rgba(11, 17, 32, 0.9)',
+                                titleColor: '#00e5ff',
+                                bodyColor: '#ffffff',
+                                borderColor: 'rgba(0, 229, 255, 0.3)',
+                                borderWidth: 1,
+                                padding: 10
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.05)'
+                                },
+                                ticks: { color: '#94a3b8' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#94a3b8' }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

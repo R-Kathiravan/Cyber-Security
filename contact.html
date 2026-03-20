@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact || CyberSecurity</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="shared.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header id="header" class="reveal-section">
+        <div class="header-cls">
+            <a href="index.html">
+                <img src="./assets/Stackly-Logo-White.webp" alt="Logo" class="logo reveal-image">
+            </a>
+            <div class="nav-links" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html" class="nav-active">Contact</a>
+                <div class="scroll-nav">
+                    <a href="login.html" class="btn btn-ghost">Login</a>
+                </div>
+                <div class="close-btn material-icons" id="closeMenu">close</div>
+                <div class="mob-view">
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="material-icons">menu</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero">
+        <div class="sub-hero-content">
+            <h1 class="text-gradient" data-aos="fade-right">Contact Us</h1>
+            <div class="breadcrumb" data-aos="fade-left">
+                <a href="index.html">Home</a>
+                <span class="material-icons">keyboard_double_arrow_right</span>
+                <p>Contact</p>
+            </div>
+            <div class="hero-quote" data-aos="fade-down" data-aos-dealy="300">
+                Lets secure your digital future — <span> together.</span> </div>
+        </div>
+    </section>
+    <section class="cyber-contact" id="contact">
+        <div class="contact-container sec-cor">
+
+            <div class="contact-info section-header">
+                <div class="chips"><span class="material-icons">lock</span> Reach out</div>
+                <h1 class="sec-head">Establish <br><span class="text-gradient">Secure Comms</span></h1>
+                <p class="sec-desc">Deploy our defense matrix or consult with our security architects. All
+                    transmissions are end-to-end encrypted.</p>
+
+                <div class="emergency-banner glass-panel" data-aos="fade-up" data-aos-dealy="300">
+                    <div class="banner-header">
+                        <span class="material-icons emergency-icon">warning</span>
+                        <h3>Active Breach?</h3>
+                    </div>
+                    <p>If you are experiencing an active cyber incident, bypass standard routing.</p>
+                    <a href="404page.html" class="emergency-number font-mono">+91 9876543210</a>
+                </div>
+
+                <div class="global-ops">
+                    <div class="ops-location" data-aos="fade-down" data-aos-dealy="400">
+                        <span class="material-icons icon-gradient">location_on</span>
+                        <div>
+                            <h4 class="font-mono">Salem (HQ)</h4>
+                            <p>Chinna Thirupathi<br>Salem, Tamil Nadu</p>
+                        </div>
+                    </div>
+                    <div class="ops-location" data-aos="fade-up" data-aos-dealy="500">
+                        <span class="material-icons icon-gradient">email</span>
+                        <div>
+                            <h4 class="font-mono">DIRECT INQUIRIES</h4>
+                            <p>info@thestackly.com<br>PGP Key Available upon request.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper glass-panel" id="comms-form-wrapper" data-aos="fade-down">
+                <form class="cyber-form" id="secure-contact-form"
+                    onsubmit="event.preventDefault(); initiateTransmission();">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-name" class="font-mono">OPERATIVE NAME</label>
+                            <input type="text" id="client-name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="client-org" class="font-mono">ORGANIZATION</label>
+                            <input type="text" id="client-org" required placeholder="Acme Corp">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-email" class="font-mono">CORPORATE EMAIL</label>
+                        <input type="email" id="client-email" required placeholder="j.doe@acmecorp.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-type" class="font-mono">CLASSIFICATION</label>
+                        <div class="custom-select">
+                            <select id="inquiry-type" required>
+                                <option value="" disabled selected>Select Inquiry Type...</option>
+                                <option value="soc">24/7 SOC Monitoring</option>
+                                <option value="pentest">Penetration Testing</option>
+                                <option value="vciso">vCISO & Strategy</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-message" class="font-mono">TRANSMISSION DATA</label>
+                        <textarea id="client-message" rows="4" required
+                            placeholder="Detail your security requirements here..."></textarea>
+                    </div>
+                    <div id="form-errors" class="terminal-errors font-mono gsap-hide" style="display: none;"></div>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+                        <span class="btn-text">Encrypt & Send</span>
+                        <span class="material-icons">lock</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <section class="cyber-pricing" id="pricing">
+        <div class="pricing-container">
+
+            <div class="section-header text-center">
+                <div class="chips"><span class="material-icons">lock</span> Pricing Plans</div>
+                <h1 class="sec-head">Deployment <span class="text-gradient">Tiers</span></h1>
+                <p class="sec-desc">Scalable security architectures tailored to your operational risk level.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <div class="pricing-card glass-panel gsap-fade-up" data-aos="fade-up">
+                    <h3 class="tier-name font-mono">PERIMETER GUARD</h3>
+                    <div class="tier-price">
+                        <span class="currency">$</span><span class="amount">2,500</span><span
+                            class="interval">/mo</span>
+                    </div>
+                    <p class="tier-desc">Baseline defense for mid-sized networks requiring automated monitoring.</p>
+                    <hr class="pricing-divider">
+                    <ul class="tier-features">
+                        <li><span class="material-icons">check_circle</span> Automated Endpoint Protection</li>
+                        <li><span class="material-icons">check_circle</span> Weekly Vulnerability Scans</li>
+                        <li><span class="material-icons">check_circle</span> Basic IAM Configuration</li>
+                        <li class="disabled"><span class="material-icons">remove_circle_outline</span> 24/7 Human SOC
+                            Monitoring</li>
+                        <li class="disabled"><span class="material-icons">remove_circle_outline</span> Active Threat
+                            Hunting</li>
+                    </ul>
+                    <a href="404page.html" class="btn btn-outline w-100">Initialize Standard</a>
+                </div>
+
+                <div class="pricing-card glass-panel popular-tier gsap-fade-up" data-aos="fade-down">
+                    <div class="popular-badge font-mono">RECOMMENDED</div>
+                    <h3 class="tier-name font-mono text-gradient">ACTIVE OVERWATCH</h3>
+                    <div class="tier-price">
+                        <span class="currency">$</span><span class="amount">6,800</span><span
+                            class="interval">/mo</span>
+                    </div>
+                    <p class="tier-desc">Comprehensive managed detection and response for enterprise infrastructure.</p>
+                    <hr class="pricing-divider">
+                    <ul class="tier-features">
+                        <li><span class="material-icons">check_circle</span> 24/7 Human SOC Monitoring</li>
+                        <li><span class="material-icons">check_circle</span> Active Threat Hunting & Isolation</li>
+                        <li><span class="material-icons">check_circle</span> Bi-Annual Penetration Testing</li>
+                        <li><span class="material-icons">check_circle</span> Zero-Trust Network Access (ZTNA)</li>
+                        <li class="disabled"><span class="material-icons">remove_circle_outline</span> Dedicated vCISO
+                        </li>
+                    </ul>
+                    <a href="404page.html" class="btn btn-primary w-100">Deploy Overwatch</a>
+                </div>
+
+                <div class="pricing-card glass-panel gsap-fade-up" data-aos="fade-up">
+                    <h3 class="tier-name font-mono">NATION-STATE</h3>
+                    <div class="tier-price">
+                        <span class="amount">CUSTOM</span>
+                    </div>
+                    <p class="tier-desc">Bespoke security architecture for critical infrastructure and high-value
+                        targets.</p>
+                    <hr class="pricing-divider">
+                    <ul class="tier-features">
+                        <li><span class="material-icons">check_circle</span> Everything in Active Overwatch</li>
+                        <li><span class="material-icons">check_circle</span> Dedicated Security Architect (vCISO)</li>
+                        <li><span class="material-icons">check_circle</span> Custom Hardware Sensors</li>
+                        <li><span class="material-icons">check_circle</span> Digital Forensics & IR Retainer</li>
+                        <li><span class="material-icons">check_circle</span> Executive Threat Intel Briefings</li>
+                    </ul>
+                    <a href="404page.html" class="btn btn-outline w-100">Consult Architect</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="cyber-map-section reveal-section" id="location">
+        <div class="map-container">
+
+            <div class="section-header text-center">
+                <div class="chips"> <span class="material-icons">lock</span> Visit Office</div>
+                <h1 class="sec-head">Command & <span class="text-gradient">Control</span></h1>
+                <p class="sec-desc">Global Headquarters & Active Threat Monitoring Center</p>
+            </div>
+
+            <div class="tactical-map-wrapper glass-panel">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.1616098770783!2d78.17140487459903!3d11.68295658852636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1773656950877!5m2!1sen!2sin"
+                    width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="cyber-iframe reveal-image1"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="faq">
+        <div class="container">
+            <div class="faq-container reveal-section">
+                <div class="faq-head-container sec-cor" data-aos="fade-down" data-aos-delay="300">
+                    <div class="section-header">
+                        <div class="chips">
+                            <span class="material-icons">lock</span> Faq
+                        </div>
+                        <h1 class="sec-head">Cybersecurity questions <span class="text-gradient"> answered
+                                clearly</span></h1>
+                    </div>
+                    <div class="faq-img">
+                        <img src="./assets/faq-image.webp" alt="Image" loading="lazy" class="reveal-image">
+                    </div>
+                </div>
+                <div class="faq-content-container">
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="faq-ques">
+                            <h3>What is a Zero-Trust Architecture?</h3>
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                        <div class="faq-ans-wrapper">
+                            <div class="faq-ans">
+                                <p>Zero-Trust is a security framework requiring all users, whether in or outside
+                                    the organization's network, to be authenticated, authorized, and
+                                    continuously validated before being granted or keeping access to
+                                    applications and data. It operates on the principle of "never trust, always
+                                    verify."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="faq-ques">
+                            <h3>How does a SOC (Security Operations Center) work?</h3>
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                        <div class="faq-ans-wrapper">
+                            <div class="faq-ans">
+                                <p>Our SOC functions as a centralized command hub where our cybersecurity
+                                    experts monitor, assess, and defend your enterprise information systems
+                                    24/7. We utilize advanced AI and threat intelligence to detect anomalies and
+                                    neutralize threats before they can cause a breach.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="faq-ques">
+                            <h3>Why is Penetration Testing necessary?</h3>
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                        <div class="faq-ans-wrapper">
+                            <div class="faq-ans">
+                                <p>Penetration testing simulates a real-world cyberattack against your systems
+                                    to identify exploitable vulnerabilities. By finding these weak points before
+                                    malicious actors do, we can patch them and harden your infrastructure
+                                    against actual threats.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+                        <div class="faq-ques">
+                            <h3>What happens during a ransomware attack?</h3>
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                        <div class="faq-ans-wrapper">
+                            <div class="faq-ans">
+                                <p>During a ransomware attack, malicious software encrypts your critical data,
+                                    and attackers demand a ransom for the decryption key. Our mitigation
+                                    strategy focuses on aggressive endpoint protection to block the malware,
+                                    combined with isolated, immutable backups to ensure data can be restored
+                                    without paying the ransom.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="800">
+                        <div class="faq-ques">
+                            <h3>How do you secure cloud infrastructure?</h3>
+                            <span class="material-icons">keyboard_arrow_down</span>
+                        </div>
+                        <div class="faq-ans-wrapper">
+                            <div class="faq-ans">
+                                <p>We secure cloud environments (AWS, Azure, GCP) by implementing strict
+                                    Identity and Access Management (IAM) controls, data encryption at rest and
+                                    in transit, micro-segmentation of networks, and continuous compliance
+                                    monitoring to prevent unauthorized data exfiltration.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    <section class="cta">
+        <div class="container">
+            <div class="cta-container reveal-section">
+                <div class="cta-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="section-header">
+                        <h1 class="sec-head">Protect business, cyber security <span class="text-gradient"> solution
+                                today!</span></h1>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="404page.html" class="btn-ghost call-btn">
+                            <span class="material-icons">call</span>
+                            +91 9876543210
+                        </a>
+                        <a href="404page.html" class="btn-outline mail-btn">
+                            <span class="material-icons">mail</span>
+                            info@thestackly.com
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-img" data-aos="fade-down" data-aos-delay="400">
+                    <img src="./assets/hero2.webp" alt="Image" loading="lazy" class="reveal-image1">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="cyber-footer reveal-section">
+        <div class="footer-grid-bg"></div>
+
+        <div class="footer-container">
+
+
+            <div class="footer-links-grid">
+
+                <div class="footer-brand" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./assets/Stackly-Logo-White.webp" alt="Logo" class="logo reveal-image1">
+                    <p class="brand-desc">Next-generation digital defense and active threat neutralization for global
+                        enterprises.</p>
+                    <div class="social-links">
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-reddit"></i></a>
+                        <a href="404page.html" class="social-btn"><i class="fa-brands fa-stack-overflow"></i></a>
+                    </div>
+                </div>
+
+                <div class="link-column" data-aos="fade-down" data-aos-delay="300">
+                    <h4 class="font-mono">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="font-mono">DEFENSE MATRIX</h4>
+                    <ul>
+                        <li><a href="404page.html">Zero-Trust Arch</a></li>
+                        <li><a href="404page.html">Cloud Perimeter</a></li>
+                        <li><a href="404page.html">Endpoint Armor</a></li>
+                        <li><a href="404page.html">Penetration Testing</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-column" data-aos="fade-down" data-aos-delay="500">
+                    <h4 class="font-mono">RESOURCES</h4>
+                    <ul>
+                        <li><a href="404page.html">Threat Database</a></li>
+                        <li><a href="404page.html">API Documentation</a></li>
+                        <li><a href="404page.html">Incident Response Guide</a></li>
+                        <li><a href="404page.html">Security Blog</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Stackly. All protocols strictly enforced.</p>
+
+                <div class="system-status">
+                    <span class="status-text font-mono">SYSTEM STATUS: SECURED</span>
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        }); 
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const contactForm = document.getElementById('secure-contact-form');
+            const formWrapper = document.getElementById('comms-form-wrapper');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnIcon = submitBtn.querySelector('.material-icons');
+            const errorContainer = document.getElementById('form-errors');
+
+
+
+            contactForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                errorContainer.style.display = 'none';
+                errorContainer.innerHTML = '';
+                formWrapper.classList.remove('shake-error');
+                const allInputs = contactForm.querySelectorAll('input, select, textarea');
+                allInputs.forEach(input => input.classList.remove('input-error'));
+
+                let errors = [];
+
+                const name = document.getElementById('client-name');
+                const org = document.getElementById('client-org');
+                const email = document.getElementById('client-email');
+                const type = document.getElementById('inquiry-type');
+                const message = document.getElementById('client-message');
+
+                if (!name.value.trim()) errors.push({ field: name, msg: "Operative name missing." });
+                if (!org.value.trim()) errors.push({ field: org, msg: "Organization designation required." });
+                if (!type.value) errors.push({ field: type, msg: "Inquiry classification must be set." });
+
+                if (message.value.trim().length < 10) {
+                    errors.push({ field: message, msg: "Minimum 10 Letters Req!. Provide detailed transmission data." });
+                }
+
+                const emailVal = email.value.trim();
+                const freeDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailVal || !emailRegex.test(emailVal)) {
+                    errors.push({ field: email, msg: "Invalid email format detected." });
+                } else {
+                    const domain = emailVal.split('@')[1].toLowerCase();
+                    if (freeDomains.includes(domain)) {
+                        errors.push({ field: email, msg: `Insecure domain (@${domain}) blocked. Corporate email required.` });
+                    }
+                }
+
+                if (errors.length > 0) {
+                    errorContainer.style.display = 'block';
+                    errors.forEach(err => {
+                        err.field.classList.add('input-error');
+                        const errorLine = document.createElement('p');
+                        errorLine.innerHTML = `<span class="error-prefix">>> ERROR:</span> ${err.msg}`;
+                        errorContainer.appendChild(errorLine);
+                    });
+
+                    setTimeout(() => formWrapper.classList.add('shake-error'), 10);
+                    return;
+                }
+
+                initiateTransmission();
+            });
+
+            function initiateTransmission() {
+                submitBtn.disabled = true;
+                btnText.textContent = "Encrypting Payload...";
+                btnIcon.textContent = "sync";
+                btnIcon.classList.add('spin-animation');
+                setTimeout(() => {
+                    window.location.href = '404page.html'
+                    contactForm.reset();
+                }, 2000);
+            }
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const questionHeader = item.querySelector('.faq-ques');
+
+                questionHeader.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                    });
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard || Cyber Security</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h2 class="text-gradient">Client Dashboard</h2>
+            <div class="header-actions">
+                <button onclick="window.location.href='404page.html'" class="notif-btn" title="Notifications">
+                    <span class="material-icons icon-gradient">notifications</span>
+                    <span class="badge">2</span>
+                </button>
+                <button class="profile-btn" title="Profile">
+                    <span class="material-icons icon-gradient">account_circle</span>
+                    <span class="user-email font-mono auth-user-email" id="auth-user-email">Loading...</span>
+                </button>
+            </div>
+            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars-staggered"></i></button>
+        </header>
+        <nav class="sidebar" id="sidebar">
+            <div class="side-bar-top">
+                <ul>
+                    <li>
+                        <a href="index.html"><img src="./assets/Stackly-Logo-White.webp" alt="logo" class="logo"></a>
+                    </li>
+                    <li class="sidebar-item active" data-tab="overview">
+                        <span class="material-icons">dashboard</span>Personal Overview
+                    </li>
+                    <li class="sidebar-item" data-tab="security">
+                        <span class="material-icons">security</span>My Security
+                    </li>
+                    <li class="sidebar-item" data-tab="reports">
+                        <span class="material-icons">analytics</span>Scan Reports
+                    </li>
+                    <li class="sidebar-item" data-tab="account">
+                        <span class="material-icons">settings</span>Account
+                    </li>
+                </ul>
+            </div>
+            <div class="side-bar-mid">
+                <button onclick="window.location.href='404page.html'" class="notif-btn" title="Notifications">
+                    <div> <span class="material-icons icon-gradient">notifications</span> </div>
+                    <span class="badge">3</span>
+                    <div class="notify-txt">Notification</div>
+                </button>
+                <button class="profile-btn" id="user-profile-btn" title="Access Profile">
+                    <h3>User:</h3>
+                    <div>
+                        <span class="material-icons icon-gradient">account_circle</span>
+                        <span class="user-email font-mono auth-user-email" id="profile-email">Authenticating...</span>
+                    </div>
+                </button>
+            </div>
+            <div class="side-bar-bottom">
+                <a href="index.html" class="btn btn-outline">Back To Home</a>
+                <a href="login.html" class="btn btn-danger" onclick="sessionStorage.clear()">Logout</a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section id="overview" class="content-section active">
+                <h1 class="sec-head" style="margin-bottom: 20px;">Welcome back to your Dashboard</h1>
+                <div class="content-block">
+                    <h3><span class="material-icons">security</span> Your Security Snapshot</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--success-neon);">verified_user</span>
+                            <div class="stat-number counter" data-target="95">0</div>
+                            <div class="stat-label">Security Score %</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--danger-neon);">block</span>
+                            <div class="stat-number counter" data-target="24">0</div>
+                            <div class="stat-label">Threats Blocked Today</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">devices</span>
+                            <div class="stat-number counter" data-target="3">0</div>
+                            <div class="stat-label">Protected Devices</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon"
+                                style="color: var(--accent-primary);">trending_up</span>
+                            <div class="stat-number counter" data-target="1.2">0</div>
+                            <div class="stat-label">Secure GB Used</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--warning-neon);">schedule</span>
+                            <div class="stat-number counter" data-target="2">0</div>
+                            <div class="stat-label">Hours Since Scan</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">speed</span>
+                            <div class="stat-number counter" data-target="45">0</div>
+                            <div class="stat-label">Response ms</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block glass-panel">
+                    <h3><span class="material-icons icon-gradient">show_chart</span> Your Security Trend</h3>
+                    <div style="position: relative; height: 300px;">
+                        <canvas id="securityTrendChart"></canvas>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons">history</span> Recent Activity</h3>
+                    <div class="recent-activity">
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">check_circle</span>
+                            <span>Quick scan completed - clean</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">5min ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--warning-neon);">warning</span>
+                            <span>Phishing attempt blocked</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">1hr ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="material-icons" style="color: var(--success-neon);">vpn_lock</span>
+                            <span>VPN connected successfully</span>
+                            <span style="margin-left: auto; color: var(--text-muted);">2hrs ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons">vpn_lock</span> VPN Status & Devices</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">link</span>
+                            <div class="stat-number">Connected</div>
+                            <div class="stat-label">VPN Status</div>
+                            <button onclick="window.location.href='404page.html'"
+                                class="btn btn-primary small">Disconnect</button>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--warning-neon);">router</span>
+                            <div class="stat-number">1.5 GB</div>
+                            <div class="stat-label">VPN Data Used</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="security" class="content-section">
+                <div class="content-block">
+                    <h3><span class="material-icons">shield</span> Personal Threat Monitor</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--danger-neon);">error</span>
+                            <div class="stat-number counter" data-target="5">0</div>
+                            <div class="stat-label">Active Alerts</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">check</span>
+                            <div class="stat-number counter" data-target="128">0</div>
+                            <div class="stat-label">Scans Run</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons stat-icon" style="color: var(--success-neon);">security</span>
+                            <div class="stat-number counter" data-target="98">0</div>
+                            <div class="stat-label">Firewall Uptime %</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3><span class="material-icons">warning</span> Live Threat Feed</h3>
+                    <div class="alert-list" id="threatFeed">
+                        <div class="alert-item alert-low">
+                            <span class="material-icons" style="color: var(--success-neon);">info</span>
+                            <span>Ad tracker blocked</span>
+                        </div>
+                        <div class="alert-item alert-medium">
+                            <span class="material-icons" style="color: var(--warning-neon);">warning</span>
+                            <span>Port scan attempt neutralized</span>
+                        </div>
+                        <div class="alert-item alert-high">
+                            <span class="material-icons" style="color: var(--danger-neon);">priority_high</span>
+                            <span>Potential phishing detected & quarantined</span>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='404page.html'" class="btn btn-primary"
+                        style="width: 100%; margin-top: 1rem;">Quick Scan Now</button>
+                </div>
+                <div class="content-block glass-panel">
+                    <h3><span class="material-icons">pie_chart</span> Threat Types Breakdown</h3>
+                    <div style="position: relative; height: 300px;">
+                        <canvas id="threatPieChart"></canvas>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3>Connected Devices</h3>
+                    <div class="sections-grid">
+                        <div class="stat-card">
+                            <span class="material-icons"
+                                style="font-size: 3rem; color: var(--success-neon);">laptop_windows</span>
+                            <div style="font-size: 1.2rem; font-weight: 600;">Work Laptop<br><small>Protected</small>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons"
+                                style="font-size: 3rem; color: var(--warning-neon);">smartphone</span>
+                            <div style="font-size: 1.2rem; font-weight: 600;">Mobile<br><small>Pending Update</small>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="material-icons"
+                                style="font-size: 3rem; color: var(--success-neon);">tablet_android</span>
+                            <div style="font-size: 1.2rem; font-weight: 600;">Tablet<br><small>Secure</small></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="reports" class="content-section">
+                <div class="content-block">
+                    <h3><span class="material-icons">table_chart</span> Scan History</h3>
+                    <div class="table-wrapper glass-panel">
+                        <table class="user-table">
+                            <thead>
+                                <tr class="table-header font-mono">
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Duration</th>
+                                    <th>Issues</th>
+                                    <th>Status</th>
+                                    <th>Report</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row">
+                                    <td class="table-cell">2024-10-05</td>
+                                    <td class="table-cell">Full</td>
+                                    <td class="table-cell">12m</td>
+                                    <td class="table-cell">0 Critical</td>
+                                    <td class="table-cell"><span class="status-badge status-online">Clean</span></td>
+                                    <td class="table-cell">
+                                        <button onclick="window.location.href='404page.html'"
+                                            class="btn btn-outline small">Download</button>
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="table-cell">2024-10-04</td>
+                                    <td class="table-cell">Quick</td>
+                                    <td class="table-cell">2m</td>
+                                    <td class="table-cell">1 Low</td>
+                                    <td class="table-cell"><span class="status-badge status-warning">Fixed</span></td>
+                                    <td class="table-cell">
+                                        <button onclick="window.location.href='404page.html'"
+                                            class="btn btn-outline small">Download</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content-block glass-panel">
+                    <h3><span class="material-icons">bar_chart</span> Scan Performance Over Time</h3>
+                    <div style="position: relative; height: 300px;">
+                        <canvas id="scanBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="content-block glass-panel">
+                    <h3><span class="material-icons">donut_large</span> Device Health Distribution</h3>
+                    <div style="position: relative; height: 300px;">
+                        <canvas id="deviceDonutChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            <section id="account" class="content-section">
+                <div class="content-block">
+                    <h3><span class="material-icons">person</span> Account Settings</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4>Profile</h4>
+                            <p><strong>Email:</strong> <span id="profile-email">user@example.com</span></p>
+                            <p><strong>Plan:</strong> Premium Security</p>
+                            <button onclick="window.location.href='404page.html'" class="btn btn-outline">Edit
+                                Profile</button>
+                        </div>
+                        <div>
+                            <h4>Security</h4>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked id="twofa-toggle">
+                                <span class="toggle-slider"></span>
+                                2FA Enabled
+                            </label>
+                            <button onclick="window.location.href='404page.html'" class="btn btn-primary"
+                                style="margin-top: 1rem;">Change Password</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-block">
+                    <h3>Subscription & Billing</h3>
+                    <div class="stat-card" style="text-align: left;">
+                        <h4>Pro Plan - $29/mo</h4>
+                        <p>Next billing: Oct 15, 2024</p>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-primary">Manage
+                            Billing</button>
+                        <button onclick="window.location.href='404page.html'" class="btn btn-outline">Upgrade to
+                            Enterprise</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const email = sessionStorage.getItem('userMail') || 'unauthorized@email.com';
+            document.getElementById('auth-user-email').textContent = email;
+            document.getElementById('profile-email').textContent = email;
+
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const contentSections = document.querySelectorAll('.content-section');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const tab = item.dataset.tab;
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    contentSections.forEach(sec => sec.classList.remove('active'));
+                    document.getElementById(tab).classList.add('active');
+                });
+            });
+
+            document.getElementById('menuToggle').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.toggle('open');
+            });
+
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                let current = 0;
+                const update = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(update);
+                    } else counter.textContent = target;
+                };
+                update();
+            });
+
+            const trendCtx = document.getElementById('securityTrendChart')?.getContext('2d');
+            if (trendCtx) new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{ label: 'Security Score', data: [88, 91, 93, 94, 95, 96, 95], borderColor: 'rgba(0,229,255,1)', backgroundColor: 'rgba(0,229,255,0.1)', fill: true, tension: 0.4 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+
+            const pieCtx = document.getElementById('threatPieChart')?.getContext('2d');
+            if (pieCtx) new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Phishing', 'Malware', 'Scans', 'Other'],
+                    datasets: [{ data: [45, 25, 20, 10], backgroundColor: ['rgba(239,68,68,0.8)', 'rgba(245,158,11,0.8)', 'rgba(0,229,255,0.8)', 'rgba(16,185,129,0.8)'] }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            const barCtx = document.getElementById('scanBarChart')?.getContext('2d');
+            if (barCtx) new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Sep 28', '29', '30', 'Oct 1', '2', '3', '4', '5'],
+                    datasets: [{ label: 'Issues Found', data: [2, 1, 0, 3, 0, 1, 0, 0], backgroundColor: 'rgba(0,229,255,0.7)' }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+            });
+
+            const donutCtx = document.getElementById('deviceDonutChart')?.getContext('2d');
+            if (donutCtx) new Chart(donutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Secure', 'Warning', 'At Risk'],
+                    datasets: [{ data: [2, 1, 0], backgroundColor: ['rgba(16,185,129,0.8)', 'rgba(245,158,11,0.8)', 'rgba(239,68,68,0.8)'] }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        });
+    </script>
+</body>
+
+</html>
