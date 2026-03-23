@@ -210,9 +210,11 @@
                 errorContainer.style.display = 'none';
                 e.target.querySelector('button').textContent = " Granted";
                 e.target.querySelector('button').style.background = "#10B981";
-
+                const subtitle = document.getElementById('auth-subtitle');
                 setTimeout(() => {
-                    window.location.href = '404page.html'
+                    document.getElementById('form-login').style.display = 'flex';
+                    subtitle.textContent = "Establish secure connection.";
+                    document.getElementById('form-signup').style.display = 'none';
                 }, 1000);
             });
 
